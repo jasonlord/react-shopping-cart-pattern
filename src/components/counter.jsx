@@ -31,7 +31,11 @@ class Counter extends Component {
 
     this.setState({ counters: counters });
   };
-
+  handleDelete = (counter) => {
+    console.log("inside handle delete");
+    const counters = this.state.counters.filter((m) => m.id !== counter.id);
+    this.setState({ counters });
+  };
   render() {
     return (
       <ul>
@@ -49,10 +53,16 @@ class Counter extends Component {
             <button
               onClick={() => this.handleDecrement(counter)}
               className="btn btn-secondary"
+              disabled={counter.value === 0 ? "disabled" : ""}
             >
               -
             </button>
-            <button className="btn-primary btn">Delete</button>
+            <button
+              onClick={() => this.handleDelete(counter)}
+              className="btn-primary btn"
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
