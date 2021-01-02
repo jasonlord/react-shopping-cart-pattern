@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 
+import Counter from "./components/counter";
+
+import "bootstrap/dist/css/bootstrap.css";
+
 class App extends Component {
   state = {};
   render() {
     return (
       <div className="App">
-        <h1>hey</h1>
+        <Counter></Counter>
       </div>
     );
   }
